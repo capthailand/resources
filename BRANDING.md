@@ -152,20 +152,29 @@ Define a consistent and restrained palette for all CAP materials:
 Used for UI-like elements, callouts, or informational boxes:
 
 - **Information (Blue):**  
-  - Text: `#085ec7`  
-  - Background: `#eef5fc`  
+  - Heading: IBM Plex Sans Semi Bold 10 UPPERCASE `#085ec7`
+  - Text: Normal
+  - Background: `#eef5fc`
+  - Border: Left 2.25 pt, right/top/bottom 0.5 pt, heading colour
 
 - **Success (Green):**  
-  - Text: `#107c10`  
-  - Background: `#dff6dd`  
+  - Heading: IBM Plex Sans Semi Bold 10 UPPERCASE `#107c10`
+  - Text: Normal
+  - Background: `#dff6dd`
+  - Border: Left 2.25 pt, right/top/bottom 0.5 pt, heading colour
 
 - **Danger (Red):**  
-  - Text: `#bc2f32`  
-  - Background: `#f6a8a8`  
+  - Heading: IBM Plex Sans Semi Bold 10 UPPERCASE `#bc2f32`
+  - Text: Normal
+  - Background: `#f6a8a8`
+  - Border: Left 2.25 pt, right/top/bottom 0.5 pt, heading colour
 
 - **Warning (Amber):**  
-  - Text: `#986f0b`  
-  - Background: `#fff4ce`  
+  - Heading: IBM Plex Sans Semi Bold 10 UPPERCASE `#986f0b`
+  - Text: Normal
+  - Background: `#fff4ce`
+  - Border: Left 2.25 pt, right/top/bottom 0.5 pt, heading colour
+
 
 
 
