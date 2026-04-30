@@ -6,6 +6,8 @@ This document outlines the standard formatting and branding conventions for CAP 
 
 ## Documents
 
+The properties below are defined in styles in templates. Do not set these properties manually if a style exists!
+
 ### Sheet Size and Layout
 
 - **Format:** A4  
@@ -86,7 +88,8 @@ This document outlines the standard formatting and branding conventions for CAP 
 **Body Text (Normal)**  
 - Font: IBM Plex Sans Light  
 - Size: 10  
-- Colour: Black  
+- Colour: Black
+- Spacing: 0.0 cm above, 0.35 cm below  
 - Line spacing: 1.15  
 
 **Emphasis**  
@@ -106,7 +109,6 @@ This document outlines the standard formatting and branding conventions for CAP 
 - Left border: 2.25 pt (accent colour)  
 - Padding: 0.28 cm on all sides  
 - Optional: Muted accent background, with optional 0.5 pt accent border  
-
 
 
 ## Dividers
@@ -151,7 +153,7 @@ Used for UI-like elements, callouts, or informational boxes:
 
 - **Information (Blue):**  
   - Text: `#085ec7`  
-  - Background: `#e8f3fc`  
+  - Background: `#eef5fc`  
 
 - **Success (Green):**  
   - Text: `#107c10`  
@@ -183,3 +185,4 @@ Used for UI-like elements, callouts, or informational boxes:
 - Maintain consistent spacing, hierarchy, and alignment across all documents.  
 - Avoid unnecessary variation in fonts, colours, or layout beyond what is defined here.  
 - Consistency should take precedence over stylistic preference.
+
