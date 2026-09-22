@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">@font-face {
+font-family: fira-sans;
+src: local("FiraSans-Regular");
+}
+@font-face {
+font-family: fira-mono;
+src: local("FiraMono-Regular");
+}
+@font-face {
+font-family: color-emoji;
+src: local("Noto Color Emoji"), local("Apple Color Emoji"), local("Segoe UI Emoji"), local("Segoe UI Symbol");
+}
+:root {
+--text-color: #24292e;
+--background-color: #ffffff;
+--alt-background-color: #f6f8fa;
+--link-color: #0366d6;
+--blockquote-text-color: #6a737d;
+--blockquote-border-color: #dfe2e5;
+--header-border-color: #eaecef;
+--hr-background-color: #e1e4e8;
+--table-tr-border-color: #c6cbd1;
+--table-td-border-color: #dfe2e5;
+--kbd-text-color: #444d56;
+--kbd-background-color: #fafbfc;
+--kbd-border-color: #c6cbd1;
+--kbd-shadow-color: #959da5;
+--topbars-height: 0px;
+}
+* {
+box-sizing: border-box;
+}
+html {
+font-size: 16px;
+}
+body {
+color: var(--text-color);
+background-color: var(--background-color);
+font-family: "Fira Sans", fira-sans, sans-serif, color-emoji;
+line-height: 1.5;
+word-wrap: break-word;
+max-width: 980px;
+margin: auto;
+margin-top: var(--topbars-height);
+padding: 0 4em;
+}
+body > :first-child {
+margin-top: 0 !important;
+}
+@media screen and (max-width: 799px) {
+html {
+font-size: 14px;
+}
+body {
+padding: 0 1em;
+}
+}
+@media screen and (min-width: 1280px) {
+html {
+font-size: 18px;
+}
+}
+a {
+background-color: transparent;
+color: var(--link-color);
+text-decoration: none;
+}
+a:active,
+a:hover {
+outline-width: 0;
+}
+a:hover {
+text-decoration: underline;
+}
+strong {
+font-weight: bold;
+}
+img {
+border-style: none;
+}
+hr {
+box-sizing: content-box;
+height: 0.25em;
+padding: 0;
+margin: 1.5em 0;
+overflow: hidden;
+background-color: var(--hr-background-color);
+border: 0;
+}
+hr::before {
+display: table;
+content: "";
+}
+hr::after {
+display: table;
+clear: both;
+content: "";
+}
+input {
+font-family: inherit;
+font-size: inherit;
+line-height: inherit;
+margin: 0;
+overflow: visible;
+}
+[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-spacing: 0;
+border-collapse: collapse;
+}
+td,
+th {
+padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+font-weight: bold;
+margin: 0;
+}
+h1 {
+font-size: 2em;
+}
+h2 {
+font-size: 1.5em;
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+}
+p {
+margin-top: 0;
+margin-bottom: 0.625em;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding-left: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code,
+kbd,
+pre {
+font-family: "Fira Mono", fira-mono, monospace, color-emoji;
+font-size: 1em;
+word-wrap: normal;
+}
+code {
+border-radius: 0.1875em;
+font-size: 0.85em;
+padding: 0.2em 0.4em;
+margin: 0;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font-size: 0.75em;
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 1em;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 1em;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+.highlight pre,
+pre {
+padding: 1em;
+overflow: auto;
+font-size: 0.85em;
+line-height: 1.5;
+background-color: var(--alt-background-color);
+border-radius: 0.1875em;
+}
+pre code {
+background-color: transparent;
+border: 0;
+display: inline;
+padding: 0;
+margin: 0;
+overflow: visible;
+line-height: inherit;
+word-wrap: normal;
+}
+.pl-0 {
+padding-left: 0 !important;
+}
+.pl-1 {
+padding-left: 0.25em !important;
+}
+.pl-2 {
+padding-left: 0.5em !important;
+}
+.pl-3 {
+padding-left: 1em !important;
+}
+.pl-4 {
+padding-left: 1.5em !important;
+}
+.pl-5 {
+padding-left: 2em !important;
+}
+.pl-6 {
+padding-left: 2.5em !important;
+}
+.markdown-body::before {
+display: table;
+content: "";
+}
+.markdown-body::after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+float: left;
+padding-right: 0.25em;
+margin-left: -1.25em;
+line-height: 1;
+}
+.anchor:focus {
+outline: none;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 1em;
+}
+blockquote {
+padding: 0 1em;
+color: var(--blockquote-text-color);
+border-left: 0.25em solid var(--blockquote-border-color);
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+kbd {
+display: inline-block;
+padding: 0.1875em 0.3125em;
+font-size: 0.6875em;
+line-height: 1;
+color: var(--kbd-text-color);
+vertical-align: middle;
+background-color: var(--kbd-background-color);
+border: solid 1px var(--kbd-border-color);
+border-bottom-color: var(--kbd-shadow-color);
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 var(--kbd-shadow-color);;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1.5em;
+margin-bottom: 1em;
+font-weight: bold;
+line-height: 1.25;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.5em;
+border-bottom: 1px solid var(--header-border-color);
+}
+h3 {
+font-size: 1.25em;
+}
+h4 {
+font-size: 1em;
+}
+h5 {
+font-size: 0.875em;
+}
+h6 {
+font-size: 0.85em;
+opacity: 0.67;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li {
+overflow-wrap: break-word;
+}
+li>p {
+margin-top: 1em;
+}
+li+li {
+margin-top: 0.25em;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 1em;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 1em;
+margin-bottom: 1em;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 0.375em 0.8125em;
+border: 1px solid var(--table-td-border-color);
+}
+table tr {
+background-color: var(--background-color);
+border-top: 1px solid var(--table-tr-border-color);
+}
+table tr:nth-child(2n) {
+background-color: var(--alt-background-color);
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+}
+img[align=right] {
+padding-left: 1.25em;
+}
+img[align=left] {
+padding-right: 1.25em;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 0.1875em;
+}
+.task-list-item input {
+margin: 0 0.2em 0.25em -1.6em;
+vertical-align: middle;
+}
+:root {
+--text-color: rgba(0, 0, 0, 0.8);
+--background-color: #f5f5f5;
+--alt-background-color: #eeeeee;
+--link-color: #0d71de;
+--blockquote-text-color: #747e85;
+--blockquote-border-color: #d6d8da;
+--header-border-color: #e1e2e4;
+--hr-background-color: #d8dadd;
+--table-tr-border-color: #bdc1c6;
+--table-td-border-color: #d6d8da;
+--kbd-text-color: #4e585e;
+--kbd-background-color: #f1f1f1;
+--kbd-border-color: #bdc1c6;
+--kbd-shadow-color: #8c939a;
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--text-color: #eeeeee;
+--background-color: #26262A;
+--alt-background-color: #37373D;
+--link-color: #b5daff;
+--blockquote-text-color: #a8a8a6;
+--blockquote-border-color: #4D4D55;
+--header-border-color: #43434A;
+--hr-background-color: #4B4B53;
+--table-tr-border-color: #63636D;
+--table-td-border-color: #4D4D55;
+--kbd-text-color: #cececc;
+--kbd-background-color: #3A3A40;
+--kbd-border-color: #63636D;
+--kbd-shadow-color: #91919B;
+}
+}
+</style>
+</head>
+<body>
+<h1 id="branding">Branding</h1>
+<h2 id="logos">Logos</h2>
+<p>Approved logos are in <a href="logos/">logos/</a>. Prefer: - <a href="logos/CAP-logo.png">CAP-logo.png</a> where possible. If you are using it on an A4 sheet, its width should be 7.5 cm. - <a href="logos/Logomark.png">Logomark.png</a> where you need a square representation of the mark alone.</p>
+<p>Never use a grey-scale version of the logo. If you are printing matter without colour, use the corresponding black and white version.</p>
+<h2 id="templates">Templates</h2>
+<p>Templates are available on <a href="https://bpsosinc.sharepoint.com/sites/CAPLegal/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FCAPLegal%2FShared%20Documents%2FStandard%2FDigital%20resources%2FTemplates&amp;viewid=ba3ba03a-97a9-4f27-bab1-696863d869b3&amp;csf=1&amp;FolderCTID=0x012000143F2C12A449154C85687D9E1228FA26">Sharepoint</a>.</p>
+<h2 id="typography">Typography</h2>
+<p>If you are developing materials that are not covered by existing templates you should start from <em>Corporate Standard</em> and adapt it for your use.</p>
+<p>This section outlines the standard formatting and branding conventions for CAP documents. These guidelines ensure consistency, clarity, and a professional presentation across all materials.</p>
+<blockquote>
+<p>Note that legal submissions follow separate templates.</p>
+</blockquote>
+<p>The properties below are defined in styles and components in CAP templates. Do not set these properties manually if a style or component exists.</p>
+<h3 id="sheet-size-and-layout">Sheet Size and Layout</h3>
+<ul>
+<li><strong>Format:</strong> A4, portrait</li>
+<li><strong>Margins:</strong>
+<ul>
+<li>Top: 2 cm</li>
+<li>Bottom: 1 cm</li>
+<li>Left: 2 cm</li>
+<li>Right: 2 cm</li>
+</ul></li>
+<li><strong>First-page header:</strong>
+<ul>
+<li>Positioned 1.5 cm from the top</li>
+<li>Paragraph spacing: 0 cm above and 1 cm below</li>
+<li>Bottom padding: 0.5 cm</li>
+<li>Bottom border: 2.25 pt amber (#F5A623)</li>
+<li>Logo: Left-aligned, 7.5 cm wide and approximately 1.55 cm high</li>
+</ul></li>
+<li><strong>First-page footer:</strong>
+<ul>
+<li>Positioned 1 cm from the bottom</li>
+<li>Top border: 0.5 pt rule grey (#DDDCEA)</li>
+<li>Top padding: 0.3 cm</li>
+<li>Text: IBM Plex Mono 7, uppercase, muted (#7A7799)</li>
+<li>Character spacing: 0.03 cm</li>
+<li>Paragraph spacing: 0 cm above and below</li>
+<li>Line spacing: 1.0</li>
+</ul></li>
+<li><strong>Subsequent pages:</strong>
+<ul>
+<li>No header</li>
+<li>Footer positioned 1 cm from the bottom</li>
+<li>Top border: 0.5 pt rule grey (#DDDCEA)</li>
+<li>Top padding: 0.2 cm</li>
+<li>Document title or reference on the left</li>
+<li>Page number and total page count on the right</li>
+<li>Footer text: IBM Plex Mono 7, uppercase, muted (#7A7799)</li>
+</ul></li>
+<li><strong>Sectioning:</strong>
+<ul>
+<li>Heading 1 begins on a new page</li>
+<li>Keep headings with the paragraph, table, or component that follows them</li>
+</ul></li>
+</ul>
+<h2 id="typography-1">Typography</h2>
+<hr />
+<h3 id="table-of-content">Table of content</h3>
+<ul>
+<li><a href="#text-styles">Text styles</a></li>
+<li><a href="#quotes">Quotes</a></li>
+<li><a href="#dividers-and-rules">Dividers and rules</a></li>
+<li><a href="#colours">Colours</a></li>
+<li><a href="#tables">Tables</a></li>
+<li><a href="#call-outs">Call-outs</a></li>
+<li><a href="#signature-blocks">Signature blocks</a></li>
+</ul>
+<p>CAP documents use three complementary font families:</p>
+<ul>
+<li><strong>Sans-serif font:</strong> IBM Plex Sans Thai
+<ul>
+<li>Used for titles, Headings 1–3, normal text, labels, and call-out headings</li>
+</ul></li>
+<li><strong>Serif font:</strong> Source Serif 4
+<ul>
+<li>Used for quotations, Headings 4–5, table content, call-out body text, and signature values</li>
+</ul></li>
+<li><strong>Monospace font:</strong> IBM Plex Mono
+<ul>
+<li>Used for references, metadata, field labels, dates, identifiers, and footer text</li>
+</ul></li>
+</ul>
+<h3 id="text-styles">Text styles</h3>
+<p><strong>Title</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai Bold</li>
+<li>Size: 16</li>
+<li>Colour: Indigo (#2E2A6E)</li>
+<li>Spacing: 2 cm above, 0.49 cm below</li>
+<li>Line spacing: 1.15</li>
+</ul>
+<p><strong>Heading 1</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai SemiBold</li>
+<li>Size: 18</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.03 cm</li>
+<li>Colour: Indigo (#2E2A6E)</li>
+<li>Spacing: 0.92 cm above, 0.42 cm below</li>
+<li>Line spacing: 1.0</li>
+<li>Page break before: Yes</li>
+</ul>
+<p><strong>Heading 2</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai SemiBold</li>
+<li>Size: 14</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.02 cm</li>
+<li>Colour: Indigo (#2E2A6E)</li>
+<li>Spacing: 0.71 cm above, 0.35 cm below</li>
+<li>Line spacing: 1.0</li>
+</ul>
+<p><strong>Heading 3</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai SemiBold</li>
+<li>Size: 12</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.02 cm</li>
+<li>Colour: Indigo light (#5B57A6)</li>
+<li>Spacing: 0.71 cm above, 0.35 cm below</li>
+<li>Line spacing: 1.0</li>
+</ul>
+<p><strong>Heading 4</strong></p>
+<ul>
+<li>Font: Source Serif 4 SemiBold</li>
+<li>Size: 12</li>
+<li>Colour: Ink (#1B1830)</li>
+<li>Spacing: 0.63 cm above, 0.28 cm below</li>
+<li>Line spacing: 1.0</li>
+</ul>
+<p><strong>Heading 5</strong></p>
+<ul>
+<li>Font: Source Serif 4 SemiBold</li>
+<li>Size: 12</li>
+<li>Colour: Indigo light (#5B57A6)</li>
+<li>Spacing: 0.49 cm above, 0.28 cm below</li>
+<li>Line spacing: 1.0</li>
+</ul>
+<p><strong>Body Text (Normal)</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai Light</li>
+<li>Size: 10</li>
+<li>Colour: Ink (#1B1830)</li>
+<li>Spacing: 0 cm above, 0.3 cm below</li>
+<li>Line spacing: 1.15</li>
+</ul>
+<p><strong>Reference Line</strong></p>
+<ul>
+<li>Font: IBM Plex Mono</li>
+<li>Size: 9</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.03 cm</li>
+<li>Colour: Indigo light (#5B57A6)</li>
+<li>Spacing: 0.3 cm above, 0.3 cm below</li>
+<li>Line spacing: 1.0</li>
+<li>Use bullet points as separators</li>
+</ul>
+<p><strong>Labels</strong></p>
+<ul>
+<li>Font: IBM Plex Mono</li>
+<li>Size: 9</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.03 cm</li>
+<li>Colour: Indigo light (#5B57A6)</li>
+<li>Spacing: 0.3 cm above, 0 cm below</li>
+<li>Line spacing: 1.0</li>
+<li>Use bullet points as separators where appropriate</li>
+</ul>
+<p><strong>Footnotes</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai Light</li>
+<li>Size: 9</li>
+<li>Colour: Ink (#1B1830)</li>
+<li>Spacing: 0 cm above and below</li>
+<li>Line spacing: 1.0</li>
+</ul>
+<h4 id="quotes">Quotes</h4>
+<ul>
+<li>Font: Source Serif 4 Italic</li>
+<li>Size: 11</li>
+<li>Colour: Body grey (#4A4766)</li>
+<li>Spacing: 0.92 cm above, 0.46 cm below</li>
+<li>Line spacing: 1.5</li>
+<li>Left indentation: 0.8 cm</li>
+<li>Left padding: 0.63 cm</li>
+<li>Left border: 2.25 pt amber (#F5A623)</li>
+<li>Do not use a shaded background</li>
+</ul>
+<p><strong>After-quote Paragraph</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai Light</li>
+<li>Size: 11</li>
+<li>Colour: Ink (#1B1830)</li>
+<li>Spacing: 1.29 cm above, 0.46 cm below</li>
+<li>Line spacing: 1.15</li>
+</ul>
+<p>Use the After-quote Paragraph style for the first paragraph immediately following a quotation.</p>
+<h3 id="dividers-and-rules">Dividers and rules</h3>
+<ul>
+<li><strong>Rule below first-page logo:</strong> 2.25 pt amber (#F5A623)</li>
+<li><strong>Footer rules:</strong> 0.5 pt rule grey (#DDDCEA)</li>
+<li><strong>Table row rules:</strong> 0.5 pt rule grey (#DDDCEA)</li>
+<li><strong>Signature rules:</strong> 1.5 pt rule grey (#DDDCEA)</li>
+<li><strong>Quote marker:</strong> 2.25 pt amber (#F5A623)</li>
+</ul>
+<p>Use amber for structural accents only. Do not use amber for ordinary text.</p>
+<h3 id="colours">Colours</h3>
+<p>Define a consistent and restrained palette for all CAP materials.</p>
+<h4 id="core-brand-colours">Core brand colours</h4>
+<table>
+<thead>
+<tr>
+<th>
+Swatch
+</th>
+<th>
+Hex
+</th>
+<th>
+Name
+</th>
+<th>
+Used for
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td bgcolor="#1B1830" style="width:4rem;height:1.25rem;background:#1B1830;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#1B1830</code>
+</td>
+<td>
+Ink
+</td>
+<td>
+Body text and Heading 4
+</td>
+</tr>
+<tr>
+<td bgcolor="#2E2A6E" style="width:4rem;height:1.25rem;background:#2E2A6E;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#2E2A6E</code>
+</td>
+<td>
+Indigo
+</td>
+<td>
+Title, Headings 1–2, links, and key data-table headers
+</td>
+</tr>
+<tr>
+<td bgcolor="#5B57A6" style="width:4rem;height:1.25rem;background:#5B57A6;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#5B57A6</code>
+</td>
+<td>
+Indigo Light
+</td>
+<td>
+Heading 3, Heading 5, reference lines, metadata, and footer text
+</td>
+</tr>
+<tr>
+<td bgcolor="#F5A623" style="width:4rem;height:1.25rem;background:#F5A623;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#F5A623</code>
+</td>
+<td>
+Amber
+</td>
+<td>
+Rule beneath the logo and quotation markers; not ordinary text
+</td>
+</tr>
+<tr>
+<td bgcolor="#4A4766" style="width:4rem;height:1.25rem;background:#4A4766;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#4A4766</code>
+</td>
+<td>
+Body Grey
+</td>
+<td>
+Text inside quotations and call-outs
+</td>
+</tr>
+<tr>
+<td bgcolor="#7A7799" style="width:4rem;height:1.25rem;background:#7A7799;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#7A7799</code>
+</td>
+<td>
+Muted
+</td>
+<td>
+Captions, field labels, footers, and notes
+</td>
+</tr>
+<tr>
+<td bgcolor="#DDDCEA" style="width:4rem;height:1.25rem;background:#DDDCEA;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#DDDCEA</code>
+</td>
+<td>
+Rule Grey
+</td>
+<td>
+Hairline rules, table borders, footer rules, and signature rules
+</td>
+</tr>
+<tr>
+<td bgcolor="#F4F3FA" style="width:4rem;height:1.25rem;background:#F4F3FA;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#F4F3FA</code>
+</td>
+<td>
+Indigo Tint
+</td>
+<td>
+Highlighted data-table headers and selected fields
+</td>
+</tr>
+<tr>
+<td bgcolor="#F7F7FB" style="width:4rem;height:1.25rem;background:#F7F7FB;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#F7F7FB</code>
+</td>
+<td>
+Table Grey
+</td>
+<td>
+Standard table-header backgrounds
+</td>
+</tr>
+<tr>
+<td bgcolor="#FFFFFF" style="width:4rem;height:1.25rem;background:#FFFFFF;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#FFFFFF</code>
+</td>
+<td>
+Paper
+</td>
+<td>
+Document backgrounds
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="semantic-colours">Semantic Colours</h4>
+<p>Use semantic colours consistently and only for their intended meaning.</p>
+<table>
+<thead>
+<tr>
+<th>
+Swatch
+</th>
+<th>
+Hex
+</th>
+<th>
+Name
+</th>
+<th>
+Used for
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td bgcolor="#2B5797" style="width:4rem;height:1.25rem;background:#2B5797;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#2B5797</code>
+</td>
+<td>
+Information foreground
+</td>
+<td>
+Information headlines
+</td>
+</tr>
+<tr>
+<td bgcolor="#EDF2FA" style="width:4rem;height:1.25rem;background:#EDF2FA;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#EDF2FA</code>
+</td>
+<td>
+Information background
+</td>
+<td>
+Declarations, notes, and cross-references
+</td>
+</tr>
+<tr>
+<td bgcolor="#2F7A4A" style="width:4rem;height:1.25rem;background:#2F7A4A;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#2F7A4A</code>
+</td>
+<td>
+Success foreground
+</td>
+<td>
+Success headlines
+</td>
+</tr>
+<tr>
+<td bgcolor="#ECF5F0" style="width:4rem;height:1.25rem;background:#ECF5F0;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#ECF5F0</code>
+</td>
+<td>
+Success background
+</td>
+<td>
+Confirmations and received documents
+</td>
+</tr>
+<tr>
+<td bgcolor="#B26A1F" style="width:4rem;height:1.25rem;background:#B26A1F;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#B26A1F</code>
+</td>
+<td>
+Warning foreground
+</td>
+<td>
+Warning headlines
+</td>
+</tr>
+<tr>
+<td bgcolor="#FAF2E8" style="width:4rem;height:1.25rem;background:#FAF2E8;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#FAF2E8</code>
+</td>
+<td>
+Warning background
+</td>
+<td>
+Procedural risks and missing evidence
+</td>
+</tr>
+<tr>
+<td bgcolor="#C13030" style="width:4rem;height:1.25rem;background:#C13030;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#C13030</code>
+</td>
+<td>
+Danger foreground
+</td>
+<td>
+Danger headlines
+</td>
+</tr>
+<tr>
+<td bgcolor="#FBEDED" style="width:4rem;height:1.25rem;background:#FBEDED;border:1px solid #DDDCEA;">
+ 
+</td>
+<td>
+<code>#FBEDED</code>
+</td>
+<td>
+Danger background
+</td>
+<td>
+Deadlines, confidentiality flags, and other high-risk conditions
+</td>
+</tr>
+</tbody>
+</table>
+<h4 id="usage-guidance">Usage guidance</h4>
+<ul>
+<li>Use <strong>ink</strong> and <strong>paper</strong> as the dominant colours.</li>
+<li>Use <strong>indigo</strong> for primary hierarchy and key structural elements.</li>
+<li>Use <strong>indigo light</strong> for supporting hierarchy, references, and metadata.</li>
+<li>Use <strong>amber</strong> sparingly for structural accents, not text.</li>
+<li>Use <strong>muted</strong> and <strong>body grey</strong> for secondary text.</li>
+<li>Use <strong>indigo tint</strong> and <strong>table grey</strong> for restrained background fills.</li>
+<li>Always pair each semantic foreground colour with its corresponding background colour.</li>
+<li>Do not mix this palette with superseded values such as #29307D, #F9AD18, or the former semantic palette.</li>
+</ul>
+<h3 id="tables">Tables</h3>
+<h4 id="standard-table">Standard table</h4>
+<p><strong>Header</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai SemiBold</li>
+<li>Size: 8</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.06 cm</li>
+<li>Colour: Muted (#7A7799)</li>
+<li>Spacing: 0.15 cm above and below</li>
+<li>Cell background: Table grey (#F7F7FB)</li>
+</ul>
+<p><strong>Body</strong></p>
+<ul>
+<li>Font: Source Serif 4</li>
+<li>Size: 9</li>
+<li>Colour: Ink (#1B1830)</li>
+<li>Spacing: 0.1 cm above and below</li>
+<li>Line spacing: 1.4</li>
+</ul>
+<p><strong>Borders</strong></p>
+<ul>
+<li>Bottom and inside-horizontal borders: 0.5 pt rule grey (#DDDCEA)</li>
+<li>Avoid full-grid borders unless the content requires cell-by-cell comparison</li>
+</ul>
+<h4 id="indigo-data-highlight-table">Indigo data highlight table</h4>
+<p><strong>Header</strong></p>
+<ul>
+<li>Use the standard table-header typography</li>
+<li>Cell background: Indigo tint (#F4F3FA)</li>
+</ul>
+<p><strong>Body</strong></p>
+<ul>
+<li>Narrative values: Source Serif 4, size 9</li>
+<li>Identifiers, dates, and coded values: IBM Plex Mono, size 9</li>
+<li>Colour: Ink (#1B1830)</li>
+<li>Spacing: 0.1 cm above and below</li>
+<li>Line spacing: 1.4</li>
+</ul>
+<p><strong>Borders</strong></p>
+<ul>
+<li>Bottom and inside-horizontal borders: 0.5 pt rule grey (#DDDCEA)</li>
+</ul>
+<h4 id="table-usage">Table Usage</h4>
+<ul>
+<li>Do not allow a table or a section containing a table to wrap awkwardly across a page break.</li>
+<li>Start the section or table on a new page when necessary.</li>
+<li>Keep table notes visually attached to their table.</li>
+<li>Use the <strong>Table Notes</strong> style immediately below a table where explanation is required.</li>
+<li>Follow Table Notes with <strong>Normal — Air Above</strong>, which adds 0.3 cm above the following paragraph.</li>
+<li>Repeat the header row when a long table continues onto another page.</li>
+</ul>
+<h3 id="call-outs">Call-outs</h3>
+<p>Use call-outs only when the content has a clear information, success, warning, or danger function.</p>
+<p>Each call-out consists of two adjacent paragraphs: a headline followed by body text. Use the paired named styles so that the background, padding, indentation, and next-style behaviour remain intact.</p>
+<p><strong>Headline</strong></p>
+<ul>
+<li>Font: IBM Plex Sans Thai SemiBold</li>
+<li>Size: 9</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.06 cm</li>
+<li>Spacing: 0 cm above and below</li>
+<li>Line spacing: 1.15</li>
+<li>Padding: 0.46 cm at the top, left, and right</li>
+<li>Left and right indentation: 0.46 cm</li>
+<li>Colour and background: Use the appropriate semantic pair</li>
+</ul>
+<p><strong>Body</strong></p>
+<ul>
+<li>Font: Source Serif 4</li>
+<li>Size: 10</li>
+<li>Colour: Body grey (#4A4766)</li>
+<li>Spacing: 0 cm above, 0.46 cm below</li>
+<li>Line spacing: 1.0</li>
+<li>Padding: 0.46 cm at the left, right, and bottom</li>
+<li>Left and right indentation: 0.46 cm</li>
+<li>Background: Use the appropriate semantic background</li>
+</ul>
+<p>Keep each call-out together on one page where possible.</p>
+<h3 id="signature-blocks">Signature blocks</h3>
+<h4 id="two-fields">Two Fields</h4>
+<ul>
+<li>Use a three-column table with widths of 8.25 cm, 0.5 cm, and 8.25 cm</li>
+<li>The middle column is an empty spacer</li>
+<li><strong>Content cells:</strong>
+<ul>
+<li>Font: Source Serif 4</li>
+<li>Size: 9</li>
+<li>Colour: Ink (#1B1830)</li>
+<li>Spacing: 0.1 cm above and below</li>
+<li>Line spacing: 1.0</li>
+</ul></li>
+<li><strong>Label cells:</strong>
+<ul>
+<li>Font: IBM Plex Mono</li>
+<li>Size: 9</li>
+<li>Case: Uppercase</li>
+<li>Character spacing: 0.03 cm</li>
+<li>Colour: Indigo light (#5B57A6)</li>
+<li>Spacing: 0 cm above and below</li>
+<li>Line spacing: 1.0</li>
+</ul></li>
+<li><strong>Signature rule:</strong> 1.5 pt rule grey (#DDDCEA)</li>
+</ul>
+<h4 id="three-fields">Three Fields</h4>
+<ul>
+<li>Use a five-column table with widths of 5.33 cm, 0.5 cm, 5.33 cm, 0.5 cm, and 5.33 cm</li>
+<li>The narrow columns are empty spacers</li>
+<li>Apply the same content, label, and rule styles used for the two-field signature block</li>
+</ul>
+<h3 id="letter-specific-layout">Letter-Specific Layout</h3>
+<p>The letter template uses a table at the top of the document with the following structure:</p>
+<ol type="1">
+<li><strong>Recipient and letter information</strong>
+<ul>
+<li>Two equal-width columns</li>
+<li>Left: Recipient block</li>
+<li>Right: Delivery channel and reference information</li>
+<li>Use the Normal style with line spacing 1.0</li>
+</ul></li>
+<li><strong>Spacer</strong>
+<ul>
+<li>One column</li>
+<li>Height: 1 cm</li>
+</ul></li>
+<li><strong>Reference labels</strong>
+<ul>
+<li>Four equal-width columns</li>
+<li>Your reference</li>
+<li>Our reference</li>
+<li>Contact person</li>
+<li>Date</li>
+<li>Use the Signature-table style</li>
+</ul></li>
+<li><strong>Reference values</strong>
+<ul>
+<li>Four equal-width columns aligned with the labels above</li>
+<li>Use the Signature-table-content style</li>
+</ul></li>
+</ol>
+<p>The letter template also uses:</p>
+<ul>
+<li><strong>Closing:</strong> Normal style, 0.92 cm above and below, with an 8.5 cm left tab</li>
+<li><strong>Closing name and title:</strong> Normal style with an 8.5 cm left tab; use soft line breaks rather than separate paragraphs</li>
+<li><strong>Address footer:</strong> Address-footer style; size 7, muted (#7A7799), 0 cm above and below, line spacing 1.0</li>
+</ul>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Start every document from the approved template for that document type.</li>
+<li>Use named paragraph, table, call-out, and signature styles rather than manual formatting.</li>
+<li>Keep the supplied header, logo, footer, page-number fields, and margins unchanged unless a filing requirement specifies otherwise.</li>
+<li>Maintain consistent spacing, hierarchy, alignment, and colour usage throughout each document.</li>
+<li>Keep tables, call-outs, and signature blocks intact across page breaks.</li>
+<li>Check the final document at normal print size for legibility and complete page numbering.</li>
+<li>Consistency should take precedence over stylistic preference.</li>
+</ul>
+</body>
+</html>
