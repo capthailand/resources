@@ -11,6 +11,10 @@ Never use a grey-scale version of the logo. If you are printing matter without c
 Templates are available on [Sharepoint](https://bpsosinc.sharepoint.com/sites/CAPLegal/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FCAPLegal%2FShared%20Documents%2FStandard%2FDigital%20resources%2FTemplates&viewid=ba3ba03a-97a9-4f27-bab1-696863d869b3&csf=1&FolderCTID=0x012000143F2C12A449154C85687D9E1228FA26).
 
 ## Typography
+
+> [!CAUTION]
+> GitHub does not render the swatch table below. Please go to the [HTML](https://capthailand.github.io/resources/branding.html) version to see the colours.
+
 If you are developing materials that are not covered by existing templates you should start from *Corporate Standard* and adapt it for your use.
 
 This section outlines the standard formatting and branding conventions for CAP documents. These guidelines ensure consistency, clarity, and a professional presentation across all materials.
